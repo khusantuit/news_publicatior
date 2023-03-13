@@ -8,8 +8,8 @@ import com.example.news.services.BaseCrudService;
 
 public interface LanguageService extends BaseCrudService<
             LanguageDto,
-            LanguageUpdateDto,
             LanguageCreateDto,
+            LanguageUpdateDto,
             LanguageCriteria,
             String
         > {

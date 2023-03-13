@@ -8,8 +8,4 @@ import lombok.Setter;
 @Setter
 public class PublicationCriteria extends AbstractCriteria {
     private String categoryId;
-    public PublicationCriteria(Integer size, Integer page, String categoryId) {
-        super(size, page);
-        this.categoryId = categoryId;
-    }
 }

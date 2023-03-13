@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 public interface InfoValueService  extends BaseCrudService<
         InfoValueDto,
-        InfoValueUpdateDto,
         InfoValueCreateDto,
+        InfoValueUpdateDto,
         InfoValueCriteria,
         String> {
 }

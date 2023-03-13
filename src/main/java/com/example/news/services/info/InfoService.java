@@ -8,8 +8,8 @@ import com.example.news.services.BaseCrudService;
 
 public interface InfoService extends BaseCrudService<
             InfoDto,
-            InfoUpdateDto,
             InfoCreateDto,
+            InfoUpdateDto,
             InfoCriteria,
             String
         > {

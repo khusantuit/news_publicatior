@@ -8,8 +8,8 @@ import com.example.news.services.BaseCrudService;
 
 public interface CategoryService extends BaseCrudService<
         CategoryDto,
-        CategoryUpdateDto,
         CategoryCreateDto,
+        CategoryUpdateDto,
         CategoryCriteria,
         String
         > {

@@ -18,7 +18,7 @@ import java.util.Set;
 @Entity
 public class Publication extends Auditable {
     @Column(name = "count_views")
-    private int countViews;
+    private Long countViews;
 
     @ManyToOne
     @JoinColumn(name="category_id", foreignKey = @ForeignKey(name="FK_CATEGORY__ID"), nullable=false)

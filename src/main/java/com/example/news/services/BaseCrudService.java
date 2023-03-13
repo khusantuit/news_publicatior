@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface BaseCrudService<
         D extends BaseGenericDto,
-        UD extends BaseGenericDto,
         CD extends BaseDto,
+        UD extends BaseGenericDto,
         C extends BaseCriteria,
         ID extends Serializable> extends BaseService{
 
