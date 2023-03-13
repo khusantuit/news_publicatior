@@ -14,7 +14,7 @@ public interface BaseCrudService<
         C extends BaseCriteria,
         ID extends Serializable> extends BaseService{
 
-    D get(ID id);
+    D get(ID entityId);
 
     List<D> getAll(C criteria);
 
@@ -22,5 +22,5 @@ public interface BaseCrudService<
 
     void update(UD dto);
 
-    void delete(ID id);
+    void delete(ID entityId);
 }

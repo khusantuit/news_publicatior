@@ -1,12 +1,13 @@
 package com.example.news.controller.publication;
 
 import com.example.news.controller.AbstractController;
-import com.example.news.criteria.publication.PublicationCriteria;
+import com.example.news.criteria.publication.paragraph.ParagraphCriteria;
 import com.example.news.dto.data.DataDto;
-import com.example.news.dto.publication.PublicationCreateDto;
-import com.example.news.dto.publication.PublicationDto;
-import com.example.news.dto.publication.PublicationUpdateDto;
-import com.example.news.services.publication.PublicationServiceImpl;
+import com.example.news.dto.publication.paragraph.ParagraphCreateDto;
+import com.example.news.dto.publication.paragraph.ParagraphDto;
+import com.example.news.dto.publication.paragraph.ParagraphUpdateDto;
+import com.example.news.services.publication.ParagraphService;
+import com.example.news.services.publication.ParagraphServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +17,21 @@ import java.util.List;
 import static com.example.news.controller.AbstractController.PATH;
 
 @RestController
-@RequestMapping(PATH + "/publication")
-public class PublicationController extends AbstractController<
-        PublicationServiceImpl,
-        PublicationDto,
-        PublicationCreateDto,
-        PublicationUpdateDto,
+@RequestMapping(PATH + "/paragraph")
+public class ParagraphController extends AbstractController<
+        ParagraphServiceImpl,
+        ParagraphDto,
+        ParagraphCreateDto,
+        ParagraphUpdateDto,
         String,
-        PublicationCriteria
-        > {
-    public PublicationController(PublicationServiceImpl service) {
+        ParagraphCriteria> {
+    public ParagraphController(ParagraphServiceImpl service) {
         super(service);
     }
 
     @Override
     @PostMapping("/create")
-    protected ResponseEntity<DataDto<String>> create(@RequestBody PublicationCreateDto dto) {
+    protected ResponseEntity<DataDto<String>> create(@RequestBody ParagraphCreateDto dto) {
         return new ResponseEntity<>(new DataDto<>(service.create(dto)), HttpStatus.OK);
     }
 
@@ -45,7 +45,7 @@ public class PublicationController extends AbstractController<
 
     @Override
     @PutMapping("/update/{id}")
-    protected ResponseEntity<DataDto<String>> update(@RequestBody PublicationUpdateDto dto, @PathVariable("id") String entityId) {
+    protected ResponseEntity<DataDto<String>> update(@RequestBody ParagraphUpdateDto dto, @PathVariable("id") String entityId) {
         dto.setId(entityId);
         service.update(dto);
 
@@ -54,13 +54,13 @@ public class PublicationController extends AbstractController<
 
     @Override
     @GetMapping("/get/{id}")
-    protected ResponseEntity<DataDto<PublicationDto>> get(@PathVariable("id") String entityId) {
+    protected ResponseEntity<DataDto<ParagraphDto>> get(@PathVariable("id") String entityId) {
         return new ResponseEntity<>(new DataDto<>(service.get(entityId)), HttpStatus.OK);
     }
 
     @Override
     @GetMapping("/getAll")
-    protected ResponseEntity<DataDto<List<PublicationDto>>> getAll(PublicationCriteria criteria) {
+    protected ResponseEntity<DataDto<List<ParagraphDto>>> getAll(ParagraphCriteria criteria) {
         return new ResponseEntity<>(new DataDto<>(service.getAll(criteria)), HttpStatus.OK);
     }
 }

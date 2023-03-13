@@ -20,8 +20,8 @@ public interface CategoryRepository extends AbstractRepository<
     List<Category> findAllByDeletedFalse();
 
 
-    @Query(value = "select c from Category c left join Info i on i.parentId = c.id left join InfoValue if on if.info.key = ?1 " +
-            "where if.value like '%?2%'")
+    @Query(value = "select c from Category c left join Info i on i.parentId = c.id left join InfoValue iv on iv.info.key = ?1 " +
+            "where iv.value like '%?2%'")
     List<Category> findAllByNameContainingIgnoreCaseAndDeletedFalse(String key, String value);
 
 
