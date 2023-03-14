@@ -19,4 +19,6 @@ public interface ParagraphRepository extends AbstractRepository<
     List<Paragraph> findAllByCreatedByAndDeletedFalse(String userId);
 //    double countAllByCreatedByAndStatusIsTrueAndDeletedIsFalse(String userId);
 
+    List<Paragraph> findAllByDeletedFalse();
+
 }

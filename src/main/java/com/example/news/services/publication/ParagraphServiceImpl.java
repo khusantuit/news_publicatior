@@ -8,6 +8,7 @@ import com.example.news.mapper.publication.paragraph.ParagraphMapper;
 import com.example.news.repository.publication.ParagraphRepository;
 import com.example.news.services.AbstractService;
 import com.example.news.validation.publication.paragraph.ParagraphValidator;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class ParagraphServiceImpl extends AbstractService<
         ParagraphRepository,
         ParagraphMapper,
         ParagraphValidator> implements ParagraphService{
-    public ParagraphServiceImpl(ParagraphRepository repository, ParagraphMapper mapper, ParagraphValidator validator) {
+    public ParagraphServiceImpl(ParagraphRepository repository, @Qualifier("ParagraphMapperImpl") ParagraphMapper mapper, ParagraphValidator validator) {
         super(repository, mapper, validator);
     }
 

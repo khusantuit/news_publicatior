@@ -18,5 +18,7 @@ public interface PublicationRepository extends AbstractRepository<PublicationCri
 //    double countAllByCreatedByAndStatusIsTrueAndDeletedIsFalse(String userId);
     @Query(value = "select p from Publication p left join Info i on i.parentId = p.id left join InfoValue iv on iv.info = i and iv.info.key = ?1 " +
         "where iv.value like '%?2%'")
-    List<Category> findAllByNameContainingIgnoreCaseAndDeletedFalse(String key, String value);
+    List<Publication> findAllByNameContainingIgnoreCaseAndDeletedFalse(String key, String value);
+
+    List<Publication> findAllByDeletedFalse();
 }
